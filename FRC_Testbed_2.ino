@@ -1,8 +1,30 @@
+/*
+  FRC Motor Controller Testbed
+
+  Written by Samuel Moore (Alumni Team 1714)
+
+  This project serves as a prototyping platform to test many
+  different FRC mechanisms. It can run up to four motors and
+  one pneumatic solenoid simultaniously, all without the
+  user having to write any code for their mechanisms. Each
+  motor is controlled via a potentiometer, and their speeds
+  are displayed on an I2C LiquidCrystal display.
+
+*/
+
+// Required libraries
 #include <Wire.h> // Library for I2C communication
 #include <LiquidCrystal_I2C.h> // Library for LCD
-#include <Servo.h> // Library for motor
+#include <Servo.h> // Library for motors
+/*
+  Motor object declaration
 
-// Motor object declaration
+  NOTE: FRC motor controllers require a 50Hz PWM signal.
+  This can be set manualy, but I've found it easier
+  to set the motor controller PWM signals as Servo
+  objects, as most servos also use a 50Hz PWM signal.
+  
+*/
 Servo motor1;
 Servo motor2;
 Servo motor3;
