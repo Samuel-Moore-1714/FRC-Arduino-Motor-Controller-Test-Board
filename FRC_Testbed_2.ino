@@ -107,7 +107,7 @@ void loop() {
     potentPin (int)
     The pin number of the potentiometer
 
-  Output:
+  Outputs:
 
     motorSpeed (int)
     The Pulse Width Modulation (PWM) value cooresponding to the potentiometer value
@@ -143,7 +143,7 @@ int getSpeed(int potentPin) {
     motor4Speed (int)
     PWM value sent to motor 4
 
-  Output:
+  Outputs:
 
     none
   
@@ -209,19 +209,38 @@ bool centeredCheck(int potentPin) {
 
 */
 void displaySpeed(int motor1Speed, int motor2Speed, int motor3Speed, int motor4Speed) {
-  
-  lcd.setCursor(0, 0);
-  lcd.print(motor1Speed);
-  
-  lcd.setCursor(0, 1);
-  lcd.print(motor2Speed);
 
-  lcd.setCursor(9, 0);
-  lcd.print(motor3Speed);
-  
-  lcd.setCursor(9, 1);
-  lcd.print(motor4Speed);
-  
+  // Map the values from 1000-2000 to -100 to 100
+  int mappedValue1 = map(motor1Speed, 1000, 2000, -100, 100);
+  int mappedValue2 = map(motor2Speed, 1000, 2000, -100, 100);
+  int mappedValue3 = map(motor3Speed, 1000, 2000, -100, 100);
+  int mappedValue4 = map(motor4Speed, 1000, 2000, -100, 100);
+
+
+  // Display value 1 in the first quadrant (top-left)
+  lcd.setCursor(0, 0);
+  lcd.print("M1:      ");
+  lcd.setCursor(4, 0);
+  lcd.print(mappedValue1);
+
+  // Display value 2 in the second quadrant (top-right)
+  lcd.setCursor(8, 0);
+  lcd.print("M2:      ");
+  lcd.setCursor(12, 0);
+  lcd.print(mappedValue2);
+
+  // Display value 3 in the third quadrant (bottom-left)
+  lcd.setCursor(0, 1);
+  lcd.print("M3:      ");
+  lcd.setCursor(4, 1);
+  lcd.print(mappedValue3);
+
+  // Display value 4 in the fourth quadrant (bottom-right)
+  lcd.setCursor(8, 1);
+  lcd.print("M4:      ");
+  lcd.setCursor(12, 1);
+  lcd.print(mappedValue4);
+
 }
 
 /*
@@ -280,4 +299,3 @@ void centerStartup() {
   lcd.clear();
   
 }
-
