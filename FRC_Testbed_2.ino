@@ -167,7 +167,7 @@ int getSpeed(int potentPin) {
 
   Outputs:
 
-    none
+    none (void)
   
 */
 void drive(int motor1Speed, int motor2Speed, int motor3Speed, int motor4Speed) {
@@ -227,7 +227,7 @@ bool centeredCheck(int potentPin) {
 
   Outputs:
 
-    none
+    none (void)
 
 */
 void displaySpeed(int motor1Speed, int motor2Speed, int motor3Speed, int motor4Speed) {
@@ -274,7 +274,7 @@ void displaySpeed(int motor1Speed, int motor2Speed, int motor3Speed, int motor4S
 
   Outputs:
     
-    none
+    none (void)
 
 */
 void displayInstruction(int potentPin) {
@@ -295,7 +295,7 @@ void displayInstruction(int potentPin) {
 
   Outputs:
     
-    none
+    none (void)
 
 */
 void centerStartup() {
